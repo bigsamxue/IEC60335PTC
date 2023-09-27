@@ -29,6 +29,7 @@
                 <TextBlock Text="连接设定" FontSize="30" FontFamily="{StaticResource IconFont}" Background="LightBlue" Margin="15,15,15,15"/>
                 <TextBlock Text="设备列表" FontSize="30" FontFamily="{StaticResource IconFont}" Margin="15,0,15,15" Background="LightBlue"/>
                 <StackPanel Orientation="Horizontal" Margin="15,0,15,15" >
+                    <!--Converter在继承自IValueConverter时使用-->
                     <RadioButton Content="Ether    " 
                                  IsChecked="{Binding Mode=TwoWay, Path=ConnectWayRadioBtn, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static vm:ConnectWayEnum.Ether}}" FontFamily="{StaticResource IconFont}" FontSize="15"/>
                     <RadioButton Content="USB-TMC    "

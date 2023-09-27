@@ -44,3 +44,9 @@ D:\功率计资料\PTC夹发棒\IEC60335Develop\bin\Debug\System.Windows.Interac
 D:\功率计资料\PTC夹发棒\IEC60335Develop\bin\Debug\TmctlAPINet64.dll
 D:\功率计资料\PTC夹发棒\IEC60335Develop\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
 D:\功率计资料\PTC夹发棒\IEC60335Develop\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+D:\功率计资料\PTC夹发棒\IEC60335Develop\bin\Debug\OxyPlot.dll
+D:\功率计资料\PTC夹发棒\IEC60335Develop\bin\Debug\OxyPlot.Wpf.dll
+D:\功率计资料\PTC夹发棒\IEC60335Develop\bin\Debug\OxyPlot.pdb
+D:\功率计资料\PTC夹发棒\IEC60335Develop\bin\Debug\OxyPlot.xml
+D:\功率计资料\PTC夹发棒\IEC60335Develop\bin\Debug\OxyPlot.Wpf.pdb
+D:\功率计资料\PTC夹发棒\IEC60335Develop\bin\Debug\OxyPlot.Wpf.xml
