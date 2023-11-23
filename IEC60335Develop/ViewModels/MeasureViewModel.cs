@@ -33,9 +33,9 @@ namespace IEC60335Develop.ViewModels {
 
         public DelegateCommand SaveFile { get; set; }
 
-        public static string StartTimeCopyToReportView { get; set; }
+        public static string StartTimeCopyToReportViewModel { get; set; }
 
-        public static string StopTimeCopyToReportView { get; set; }
+        public static string StopTimeCopyToReportViewModel { get; set; }
 
         public static List<double> CurrentListCopyToReportViewModel { get; set; }
         public static List<double> PowerListCopyToReportViewModel { get; set; }
@@ -126,8 +126,8 @@ namespace IEC60335Develop.ViewModels {
             }
 
             ConnectionViewModel.WT1800.RemoteCTRL(":HSPEED:STOP");//解注释
-            StopTimeCopyToReportView = DateTime.Now.ToString();
-            //MessageBox.Show(StopTimeCopyToReportView.ToString());//测试用
+            StopTimeCopyToReportViewModel = DateTime.Now.ToString();
+            //MessageBox.Show(StopTimeCopyToReportViewModel.ToString());//测试用
             cancellationToken.Cancel();
 
             CurrentListCopyToReportViewModel = WTMeasureModel.CurrentValue;
@@ -149,7 +149,7 @@ namespace IEC60335Develop.ViewModels {
 
         private void StartClick() {
             ConnectionViewModel.WT1800.RemoteCTRL(":HSPEED:START");//解注释
-            StartTimeCopyToReportView = DateTime.Now.ToString();
+            StartTimeCopyToReportViewModel = DateTime.Now.ToString();
             WTMeasureModel.VoltageValue = new List<double>();
             WTMeasureModel.CurrentValue = new List<double>();
             WTMeasureModel.PowerValue = new List<double>();
@@ -193,15 +193,15 @@ namespace IEC60335Develop.ViewModels {
 
                 string voltageValue = string.Empty;
                 while (true) {
-                    voltageValue = ConnectionViewModel.WT1800.RemoteCTRL(":NUMeric:HSPeed:VALue? " + (double.Parse(SettingViewModel.ElementCopyToMesView.Substring(7)) + 2 * (double.Parse(SettingViewModel.ElementCopyToMesView.Substring(7)) - 1)).ToString());
+                    voltageValue = ConnectionViewModel.WT1800.RemoteCTRL(":NUMeric:HSPeed:VALue? " + (double.Parse(SettingViewModel.ElementCopyToMesViewModel.Substring(7)) + 2 * (double.Parse(SettingViewModel.ElementCopyToMesViewModel.Substring(7)) - 1)).ToString());
                     if (!string.IsNullOrWhiteSpace(voltageValue)) {
                         break;
                     }
                 }
 
-                var currentValue = ConnectionViewModel.WT1800.RemoteCTRL(":NUMeric:HSPeed:VALue? " + (double.Parse(SettingViewModel.ElementCopyToMesView.Substring(7)) + 1 + 2 * (double.Parse(SettingViewModel.ElementCopyToMesView.Substring(7)) - 1)).ToString());
-                var powerValue = ConnectionViewModel.WT1800.RemoteCTRL(":NUMeric:HSPeed:VALue? " + (double.Parse(SettingViewModel.ElementCopyToMesView.Substring(7)) + 2 + 2 * (double.Parse(SettingViewModel.ElementCopyToMesView.Substring(7)) - 1)).ToString());
-                var powerMaxValue = ConnectionViewModel.WT1800.RemoteCTRL(":NUMERIC:HSPEED:MAXIMUM? " + (double.Parse(SettingViewModel.ElementCopyToMesView.Substring(7)) + 2 + 2 * (double.Parse(SettingViewModel.ElementCopyToMesView.Substring(7)) - 1)).ToString());
+                var currentValue = ConnectionViewModel.WT1800.RemoteCTRL(":NUMeric:HSPeed:VALue? " + (double.Parse(SettingViewModel.ElementCopyToMesViewModel.Substring(7)) + 1 + 2 * (double.Parse(SettingViewModel.ElementCopyToMesViewModel.Substring(7)) - 1)).ToString());
+                var powerValue = ConnectionViewModel.WT1800.RemoteCTRL(":NUMeric:HSPeed:VALue? " + (double.Parse(SettingViewModel.ElementCopyToMesViewModel.Substring(7)) + 2 + 2 * (double.Parse(SettingViewModel.ElementCopyToMesViewModel.Substring(7)) - 1)).ToString());
+                var powerMaxValue = ConnectionViewModel.WT1800.RemoteCTRL(":NUMERIC:HSPEED:MAXIMUM? " + (double.Parse(SettingViewModel.ElementCopyToMesViewModel.Substring(7)) + 2 + 2 * (double.Parse(SettingViewModel.ElementCopyToMesViewModel.Substring(7)) - 1)).ToString());
 
 
                 var voltageValueArray = Array.ConvertAll<string, double>(voltageValue.Split(','), s => double.Parse(s));

@@ -105,8 +105,8 @@ namespace IEC60335Develop.ViewModels {
             Thread.Sleep(10);
 
             //将起止时间同步更新到View
-            WTReportModel.StartTime = MeasureViewModel.StartTimeCopyToReportView;
-            WTReportModel.StopTime = MeasureViewModel.StopTimeCopyToReportView;
+            WTReportModel.StartTime = MeasureViewModel.StartTimeCopyToReportViewModel;
+            WTReportModel.StopTime = MeasureViewModel.StopTimeCopyToReportViewModel;
 
             //将CurrentList、PowerList降序排列
             WTReportModel.CurrentList = MeasureViewModel.CurrentListCopyToReportViewModel;
